@@ -1,0 +1,27 @@
+{
+  "name": "gradetracker",
+  "productName": "Grade Tracker",
+  "version": "1.0.0",
+  "description": "App to track grades",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlew7887/GradeTracker.git"
+  },
+  "author": "Rlew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlew7887/GradeTracker/issues"
+  },
+  "homepage": "https://github.com/rlew7887/GradeTracker#readme",
+  "devDependencies": {
+    "electron": "^37.2.1"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.2.0"
+  }
+}
