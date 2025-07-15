@@ -5,15 +5,19 @@
         <title>Welcome to Grade Tracker</title>
     </head>
     <body>
-        <div>
-            <h1>Welcome to Grade Tracker!</h1>
-            <div class="add-courses">
-                <input type="text" name="write-course" placeholder="Add a course here...">
-                <button id="addBTN" type="submit">+</button>
-            </div>
-            <div class="square-container">
-                <h3>Course Name</h3>
-            </div>
+        <h1>Welcome to Grade Tracker!</h1>
+        <hr>
+        <div class="add-courses">
+            <p>Add a course here...</p>
+            <input id="courseCode" type="text" placeholder="Course Code (e.g. COMP SCI 2007)">
+            <input id="courseName" type="text" placeholder="Course Name (e.g. Programming Fundamentals)">
+            <button id="addBTN" type="submit">+</button>
         </div>
+        <div id="course-container">
+            <br>
+            <!--course boxes will appear here-->
+        </div>
+
+        <script defer src="index.js"></script>
     </body>
 </html>
