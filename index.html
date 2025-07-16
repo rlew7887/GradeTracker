@@ -3,15 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <title>Welcome to Grade Tracker</title>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <h1>Welcome to Grade Tracker!</h1>
         <hr>
+        <p>Add a course here...</p>
         <div class="add-courses">
-            <p>Add a course here...</p>
-            <input id="courseCode" type="text" placeholder="Course Code (e.g. COMP SCI 2007)">
-            <input id="courseName" type="text" placeholder="Course Name (e.g. Programming Fundamentals)">
-            <button id="addBTN" type="submit">+</button>
+            <form id="courseForm">
+                <input id="courseCode" type="text" placeholder="Course Code (e.g. COMP SCI 2007)">
+                <input id="courseName" type="text" placeholder="Course Name (e.g. Programming Fundamentals)">
+                <button id="addBTN" type="submit">+</button>
+            </form>
         </div>
         <div id="course-container">
             <br>
