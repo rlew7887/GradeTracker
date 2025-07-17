@@ -32,9 +32,23 @@ courseForm.addEventListener("submit", function (e) {
     });
 });
 
+const colors = [
+    'rgb(193, 118, 143)',
+    'rgb(144, 168, 144)',
+    'rgb(197, 161, 108)',
+    'rgb(135, 160, 186)'
+];
+
+let colorIndex = 0;
+
 function addCourseBox(code, name) {
-    const div = document.createElement("div");
-    div.className = "course-box";
-    div.textContent = `${code}: ${name}`;
-    container.appendChild(div);
+    const box = document.createElement("div");
+    box.classList.add("course-box");
+
+    // set alternating background color
+    box.style.backgroundColor = colors[colorIndex];
+    colorIndex = (colorIndex + 1) % colors.length;
+
+    box.textContent = `${code}: ${name}`;
+    container.appendChild(box);
 }
