@@ -29,6 +29,22 @@ app.get('/api/courses', (req, res) => {
     }
 });
 
+// Delete course
+app.delete('/api/delete-course/:code', (req, res) => {
+    const code  = req.params.code;
+    try {
+        const query = db.prepare(`DELETE FROM Course WHERE course_code = ?`);
+        const result = query.run(code);
+        if (result.changes === 0) { // if 0 changes means no rows deleted
+            return res.status(404).json({ success: false, message: 'Course not found' });
+        }
+        res.json({ success: true, message: `${code} deleted`})
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false, message: 'Database error'})
+    }
+});
+
 const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

@@ -33,9 +33,9 @@ courseForm.addEventListener("submit", function (e) {
 });
 
 const colors = [
+    'rgba(194, 168, 129, 1)',
     'rgb(193, 118, 143)',
     'rgb(144, 168, 144)',
-    'rgb(197, 161, 108)',
     'rgb(135, 160, 186)'
 ];
 
@@ -49,6 +49,32 @@ function addCourseBox(code, name) {
     box.style.backgroundColor = colors[colorIndex];
     colorIndex = (colorIndex + 1) % colors.length;
 
+    // add text
     box.textContent = `${code}: ${name}`;
+
+    // add delete button
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "×";
+    deleteBtn.classList.add("deleteBTN");
+    box.appendChild(deleteBtn);
+    deleteBtn.addEventListener("click", () => {
+        if (confirm(`Are you sure you want to delete ${code}: ${name}?`)) {
+            fetch(`http://localhost:8080/api/delete-course/${encodeURIComponent(code)}`, {
+                method: "DELETE"
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    box.remove();
+                } else {
+                    alert("Failed to delete course");
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Error deleting course.");
+            });
+        }
+    });
     container.appendChild(box);
 }

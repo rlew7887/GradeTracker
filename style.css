@@ -16,18 +16,19 @@ p {
     text-align: center;
 }
 
-.courseForm form {
-    display: flex;
-    align-items: stretch; /* make items same height */
-}
-
+/* ========================================FORM======================================== */
 #addBTN {
     width: 30px;
-    background-color: rgb(106, 136, 105);
+    background-color: rgb(167, 119, 95);
     color: rgb(76, 47, 37);
     border-radius: 10px ;
     border: none;
     font-size: 20px;
+}
+
+.courseForm form {
+    display: flex;
+    align-items: stretch; /* make items same height */
 }
 
 input, #addBTN { /* set shared height for both elements */
@@ -63,9 +64,22 @@ input::placeholder {
     justify-content: center;
 }
 
-/* #course-container {
+/* ========================================COURSE BOXES======================================== */
+.deleteBTN {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: transparent;
+    color: rgb(76, 47, 37);
+    border: none;
+    font-size: 20px;
+}
+
+#course-container {
     display: flex;
-} */
+    justify-content: center;
+    flex-direction: row;
+}
 
 .course-box {
     display: flex;
@@ -73,11 +87,14 @@ input::placeholder {
     align-items: center; /* center horizontally */
     text-align: center; /* center vertically */
     font-weight: bold;
-    width: 200px; /* ensure div is square */
-    height: 200px;
+    width: 180px; /* ensure div is square */
+    height: 180px;
+    padding: 0px 10px;
     color: rgb(76, 47, 37);
     border-radius: 15px; /* rounded corners */
     border: none;
+    box-sizing: border-box;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* adds shadow */
     margin: 10px; /* space between boxes */
+    position: relative; /* allow absolute positioning for child */
 }
