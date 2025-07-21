@@ -11,6 +11,10 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    color: rgb(167, 119, 95);
+}
+
 p {
     color: rgb(167, 119, 95);
     text-align: center;
@@ -86,6 +90,7 @@ input::placeholder {
     justify-content: center;
     align-items: center; /* center horizontally */
     text-align: center; /* center vertically */
+    text-decoration: none; /* prevent link underline */
     font-weight: bold;
     width: 180px; /* ensure div is square */
     height: 180px;
@@ -97,4 +102,27 @@ input::placeholder {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* adds shadow */
     margin: 10px; /* space between boxes */
     position: relative; /* allow absolute positioning for child */
+}
+
+/* ========================================COURSEWORK TABLE======================================== */
+#addworkBTN {
+    background-color: rgb(167, 119, 95);
+    color: rgb(76, 47, 37);
+    border-radius: 5px ;
+    border: none;
+    font-size: 16px;
+    margin: 10px;
+}
+
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+    border-bottom: 1px solid;
+    padding: 0px 5px;
+    width: 48%;
+    color: rgb(167, 119, 95);
+}
+
+th {
+    width: fit-content;
 }

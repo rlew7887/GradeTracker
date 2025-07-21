@@ -45,6 +45,19 @@ app.delete('/api/delete-course/:code', (req, res) => {
     }
 });
 
+// Get coursework
+app.get('/api/list', (req, res) => {
+    const code = req.query.code;
+    try {
+        const query = db.prepare(`SELECT coursework_type, current_mark, full_mark, weightage FROM Coursework WHERE course_code = ?`);
+        const rows = query.all(code);
+        res.json(rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Database error' });
+    }
+});
+
 const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);

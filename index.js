@@ -42,8 +42,9 @@ const colors = [
 let colorIndex = 0;
 
 function addCourseBox(code, name) {
-    const box = document.createElement("div");
+    const box = document.createElement("a");
     box.classList.add("course-box");
+    box.href = `coursework.html?course=${encodeURIComponent(code)}`; // pass course code to open list of associated coursework
 
     // set alternating background color
     box.style.backgroundColor = colors[colorIndex];
@@ -57,7 +58,9 @@ function addCourseBox(code, name) {
     deleteBtn.textContent = "×";
     deleteBtn.classList.add("deleteBTN");
     box.appendChild(deleteBtn);
-    deleteBtn.addEventListener("click", () => {
+    deleteBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); // stop event from reaching <a>
+        e.preventDefault(); // prevent link navigation
         if (confirm(`Are you sure you want to delete ${code}: ${name}?`)) {
             fetch(`http://localhost:8080/api/delete-course/${encodeURIComponent(code)}`, {
                 method: "DELETE"
