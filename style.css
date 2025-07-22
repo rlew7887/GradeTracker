@@ -105,7 +105,7 @@ input::placeholder {
 }
 
 /* ========================================COURSEWORK TABLE======================================== */
-#addworkBTN {
+button {
     background-color: rgb(167, 119, 95);
     color: rgb(76, 47, 37);
     border-radius: 5px ;

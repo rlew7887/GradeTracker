@@ -13,9 +13,9 @@ db.prepare(`CREATE TABLE IF NOT EXISTS Coursework (
     coursework_id INTEGER PRIMARY KEY AUTOINCREMENT,
     course_code VARCHAR(20) NOT NULL,
     coursework_type VARCHAR(20),
-    current_mark INTEGER,
-    full_mark INTEGER,
-    weightage INTEGER,
+    current_mark REAL,
+    full_mark REAL,
+    weightage REAL,
     FOREIGN KEY(course_code) REFERENCES Course(course_code)
     )`
 ).run();

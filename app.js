@@ -58,6 +58,22 @@ app.get('/api/list', (req, res) => {
     }
 });
 
+// Add coursework
+app.post('/api/add-coursework', (req, res) => {
+    const { course_code, coursework_type, current_mark, full_mark, weightage } = req.body;
+    try {
+        const query = db.prepare(`
+            INSERT INTO Coursework (course_code, coursework_type, current_mark, full_mark, weightage)
+            VALUES (?, ?, ?, ?, ?)
+        `);
+        query.run(course_code, coursework_type, current_mark, full_mark, weightage);
+        res.json({ success: true });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ success: false });
+    }
+});
+
 const PORT = 8080;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
